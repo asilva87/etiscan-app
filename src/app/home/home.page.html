@@ -1,20 +1,104 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
+    <!-- TODO: bugado -->
     <ion-title>
-      Blank
+      <ion-icon *ngIf="currentPage" name="arrow-back" (click)="returnPage()"></ion-icon>
+      {{ selectedPageTitle }}
     </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar class="toolbar">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-searchbar show-clear-button="focus"></ion-searchbar>
+        </ion-col>
+
+        <ion-col size="auto">
+          <div class="expand-button">
+            <ion-button color="light" (click)="setListItemsExtended()">
+              <ion-icon name="resize"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+<ion-content [fullscreen]="true">
+  <!-- Orders page -->
+  <div class="container" *ngIf="currentPage === 0">
+    <div class="list-item" *ngFor="let order of orders" (click)="setSelectedOrder(order.id)">
+      <div class="item-title">
+        <div>{{ order.id }}</div>
+
+        <ion-badge 
+          [color]="countPickedProducts(order.products) === order.products.length 
+          ? 'success' 
+          : (countPickedProducts(order.products) !== 0 
+            ? 'warning' 
+            : 'primary')"
+        >
+          {{ countPickedProducts(order.products) }} of {{ order.products.length }}
+        </ion-badge>
+      </div>
+
+      <div class="item-info" *ngIf="listItemsExtended">
+        <div>{{ order.clientId }}</div>
+
+        <div>{{ order.client }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order products page -->
+  <div class="container" *ngIf="currentPage === 1">
+    <div
+      class="list-item"
+      [ngStyle]="{color: product.picked ? 'green' : ''}"
+      *ngFor="let product of selectedOrder?.products"
+      (click)="!product.picked ? setSelectedProduct(product.id) : null"
+    >
+      <div class="item-title">
+        <div>{{ product.id }}</div>
+
+        <div>{{ product.corridor + 1 }}</div>
+      </div>
+
+      <div class="item-info" *ngIf="listItemsExtended">
+        <div>{{ product.title }}</div>
+      </div>
+    </div>
+
+    <div class="submit-button">
+      <ion-button (click)="canSubmitOrder()">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="currentPage === 2">
+    <app-product-details
+      *ngIf="selectedProduct"
+      [product]="selectedProduct!"
+      (updateProduct)="updateProduct($event)"
+    >
+    </app-product-details>
   </div>
 </ion-content>
+
+<ion-alert
+  [isOpen]="showIncompleteOrderSubmitAlert"
+  header="Unvollständige Bearbeitung"
+  subHeader="Die Bearbeitung is unvollständig. Trotzdem übertragen?"
+  [buttons]="incompleteOrderSubmitAlertButtons"
+></ion-alert>
+
+<!-- <div class="item-info" *ngIf="ordersExtended">
+  <div>{{ product?.title }}</div>
+
+  <div>{{ order.client }}</div>
+</div> -->
