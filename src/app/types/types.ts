@@ -11,12 +11,13 @@ interface Product {
   name: string;
   picked: boolean; 
   corridor: number;
+  image: string;
 }
 
 enum Page {
   ORDERS = 'ORDERS',
   PRODUCTS = 'PRODUCTS',
-  PRODUCT_DETAIL = 'PRODUCT_DETAIL'
+  PRODUCT_DETAILS = 'PRODUCT_DETAILS'
 }
 
 export {
