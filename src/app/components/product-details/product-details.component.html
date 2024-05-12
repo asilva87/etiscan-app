@@ -7,7 +7,7 @@
     </ion-col>
 
     <ion-col class="product-description">
-      <strong style="padding-bottom: 5px;">{{ product.id }}</strong>
+      <strong style="padding-bottom: 5px">{{ product.id }}</strong>
       <div>{{ product.title }}</div>
     </ion-col>
   </ion-row>
@@ -16,23 +16,21 @@
   <div class="product-info-input-row">
     <ion-icon name="locate"></ion-icon>
 
-    <div style="margin-left: .5rem;">{{ product.corridor }}</div>
+    <div style="margin-left: 0.5rem">{{ product.corridor }}</div>
 
-    <div style="margin-left: auto;">
-      <input placeholder="BARCODE" [(ngModel)]="barCode"/>
+    <div style="margin-left: auto">
+      <input placeholder="BARCODE" [(ngModel)]="barCode" />
     </div>
   </div>
 
   <div class="product-info-input-row">
     <ion-icon name="cart"></ion-icon>
 
-    <div style="margin-left: .5rem;">
-      <input placeholder="10" [(ngModel)]="productAmount"/>  
+    <div style="margin-left: 0.5rem">
+      <input placeholder="10" [(ngModel)]="productAmount" />
     </div>
 
-    <div style="color: grey;">
-      STÜCK
-    </div>
+    <div style="color: grey">STÜCK</div>
   </div>
 
   <div class="submit-button">

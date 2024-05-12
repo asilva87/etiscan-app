@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Product } from 'src/app/types/types';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Product } from 'src/app/types/types'
 
 @Component({
   selector: 'app-product-details',
@@ -13,7 +13,7 @@ export class ProductDetailsComponent {
   public barCode = ''
   public productAmount!: number
 
-  constructor() { }
+  constructor() {}
 
   public emitUpdateProduct() {
     this.product.picked = true

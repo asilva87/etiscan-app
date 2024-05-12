@@ -1,6 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { DataService } from '../data.service';
-import { Order, Page, Product } from '../types/types';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core'
+import { DataService } from '../data.service'
+import { Order, Page, Product } from '../types/types'
 
 @Component({
   selector: 'app-home',
@@ -22,19 +22,17 @@ export class HomePage implements OnInit, OnChanges {
       text: 'Nein',
       handler: () => {
         this.showIncompleteOrderSubmitAlert = false
-      }
+      },
     },
     {
       text: 'Ja',
       handler: () => {
         this.submitOrder()
-      }
-    }
+      },
+    },
   ]
 
-  constructor(private dataService: DataService) {
-    
-  }
+  constructor(private dataService: DataService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     this.listItemsExtended = false
@@ -51,7 +49,7 @@ export class HomePage implements OnInit, OnChanges {
             ...product,
             picked: false,
             id: this.getRandomNumber(9999),
-            corridor: this.getRandomNumber(3) + 1
+            corridor: this.getRandomNumber(3) + 1,
           }
         })
 
@@ -61,7 +59,7 @@ export class HomePage implements OnInit, OnChanges {
           id: `KOMM${this.getRandomNumber(9999)}`,
           client: 'Teiber Products GmbH',
           clientId: this.getRandomNumber(9999),
-          products: (response as Product[]).slice(0, 6)
+          products: (response as Product[]).slice(0, 6),
         })
 
         // Second example order
@@ -69,7 +67,7 @@ export class HomePage implements OnInit, OnChanges {
           id: `KOMM${this.getRandomNumber(9999)}`,
           client: 'Strohmeier General Store GmbH',
           clientId: this.getRandomNumber(9999),
-          products: (response as Product[]).slice(6, 10)
+          products: (response as Product[]).slice(6, 10),
         })
 
         // Initialise filtered orders as simply the whole list of orders
@@ -77,7 +75,7 @@ export class HomePage implements OnInit, OnChanges {
       },
       error: (e) => {
         console.error('Error fetching products: ', e)
-      }
+      },
     })
   }
 
@@ -92,7 +90,9 @@ export class HomePage implements OnInit, OnChanges {
   }
 
   public setSelectedProduct(productId: number): void {
-    this.selectedProduct = this.selectedOrder?.products.find((product: Product) => product.id === productId)
+    this.selectedProduct = this.selectedOrder?.products.find(
+      (product: Product) => product.id === productId
+    )
     this.selectedPageTitle = this.selectedProduct!.id
     this.currentPage++
   }
@@ -106,9 +106,9 @@ export class HomePage implements OnInit, OnChanges {
   }
 
   public updateProduct(product: Product) {
-    this.selectedProduct = product;
-    const index = this.selectedOrder!.products.findIndex(p => p.id === product.id);
-    
+    this.selectedProduct = product
+    const index = this.selectedOrder!.products.findIndex((p) => p.id === product.id)
+
     this.selectedOrder!.products[index] = product
 
     this.currentPage--
@@ -119,7 +119,7 @@ export class HomePage implements OnInit, OnChanges {
     this.showIncompleteOrderSubmitAlert = true
   }
 
-  public submitOrder(): void {  
+  public submitOrder(): void {
     this.orders = this.orders.filter((order: Order) => order.id !== this.selectedOrder!.id)
 
     this.currentPage--
