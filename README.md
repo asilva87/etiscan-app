@@ -5,7 +5,7 @@ I wrote this app, firstly, to learn about the required technology stack for the 
 
 It's simple and not intended on displaying best practices or standard on programming, styling, etc. It's just an exercise.
 
-Search feature not working yet.
+Search feature not working yet. (The fact I'm sending the app with this feature missing doesn't mean that would happen in real work life.)
 
 ## Run
 
