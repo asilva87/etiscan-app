@@ -3,7 +3,8 @@
 I wrote this app, firstly, to learn about the required technology stack for the position below:
 [Frontend Entwickler – App Programmierung / ERP / Intralogistik (m/w/d)](https://www.etiscan.de/en/jobs/frontend-entwickler-app-programmierung-erp-intralogistik-m-d-w/)
 
-It's simple and not intended on displaying best practices or standard on programming, styling, etc. It's just an exercise.
+It's simple and not intended on displaying best practices or standards on programming, styling, etc. Or even how to use Ionic or Sass, etc. It's just an exercise.
+I haven't worked with Angular in 2.5 years. But I can remember it. I'm also aware of its new features, like Signals.
 
 Search feature not working yet. (The fact I'm sending the app with this feature missing doesn't mean that would happen in real work life.)
 
