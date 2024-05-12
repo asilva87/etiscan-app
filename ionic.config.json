@@ -1,0 +1,7 @@
+{
+  "name": "EtiscanApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
