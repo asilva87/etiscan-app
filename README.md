@@ -1,5 +1,5 @@
 ## Ionic+Angular app made for Etiscan
-I wrote this app, firstly, to learn about the require technology stack for the position below, which I had previously no knowledge of:
+I wrote this app, firstly, to learn about the required technology stack for the position below:
 [Frontend Entwickler – App Programmierung / ERP / Intralogistik (m/w/d)](https://www.etiscan.de/en/jobs/frontend-entwickler-app-programmierung-erp-intralogistik-m-d-w/)
 
 ## Run
