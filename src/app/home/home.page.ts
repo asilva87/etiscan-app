@@ -42,7 +42,6 @@ export class HomePage implements OnInit, OnChanges {
 
   ngOnInit() {
     this.selectedPageTitle = 'Kommissionierungen'
-    console.log(this.currentPage)
 
     this.dataService.fetchData().subscribe({
       next: (response) => {
@@ -75,8 +74,6 @@ export class HomePage implements OnInit, OnChanges {
 
         // Initialise filtered orders as simply the whole list of orders
         this.ordersFiltered = [...this.orders]
-
-        console.log('orders', this.orders)
       },
       error: (e) => {
         console.error('Error fetching products: ', e)
