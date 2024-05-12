@@ -62,7 +62,7 @@
       <div class="item-title">
         <div>{{ product.id }}</div>
 
-        <div>{{ product.corridor + 1 }}</div>
+        <div>{{ 'G-'.concat((product.corridor + 1).toString()) }}</div>
       </div>
 
       <div class="item-info" *ngIf="listItemsExtended">
