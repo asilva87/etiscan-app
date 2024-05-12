@@ -1,0 +1,32 @@
+.product-image {
+  height: 70px;
+  width: 70px;
+}
+
+.image-container {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.product-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 1rem;
+}
+
+.product-info-row {
+  border-bottom-style: solid;
+  border-bottom-color: lightgrey;
+  border-bottom-width: 1px;
+  width: 100vw;
+}
+
+.product-info-input-row {
+  display: flex;
+  padding: .5rem;
+  border-bottom-style: solid;
+  border-bottom-color: lightgrey;
+  border-bottom-width: 1px;
+}

@@ -1,3 +1,43 @@
-<p>
-  product-details works!
-</p>
+<ion-grid>
+  <ion-row class="product-info-row">
+    <ion-col size="auto">
+      <div class="image-container">
+        <ion-img class="product-image" [src]="product.image"></ion-img>
+      </div>
+    </ion-col>
+
+    <ion-col class="product-description">
+      <strong style="padding-bottom: 5px;">{{ product.id }}</strong>
+      <div>{{ product.title }}</div>
+    </ion-col>
+  </ion-row>
+
+  <!-- Wasting too much time with ionic styling for this demo. So div it is. -->
+  <div class="product-info-input-row">
+    <ion-icon name="locate"></ion-icon>
+
+    <div style="margin-left: .5rem;">{{ product.corridor }}</div>
+
+    <div style="margin-left: auto;">
+      <input placeholder="BARCODE" [(ngModel)]="barCode"/>
+    </div>
+  </div>
+
+  <div class="product-info-input-row">
+    <ion-icon name="cart"></ion-icon>
+
+    <div style="margin-left: .5rem;">
+      <input placeholder="10" [(ngModel)]="productAmount"/>  
+    </div>
+
+    <div style="color: grey;">
+      STÜCK
+    </div>
+  </div>
+
+  <div class="submit-button">
+    <ion-button [disabled]="!barCode || !productAmount" (click)="emitUpdateProduct()">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-button>
+  </div>
+</ion-grid>
